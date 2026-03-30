@@ -1,25 +1,26 @@
-// TODO 1: Import Express
+import express from 'express';
+import cors from 'cors';
 
+const app = express();
 
+app.use(cors());
 
-// TODO 2: Create the Express app and store it in a variable named app
+app.get('/', (req, res) => {
+  res.send('Welcome to the Home Page');
+});
 
+app.get('/about', (req, res) => {
+  res.send('This is the About Page');
+});
 
+app.get('/student', (req, res) => {
+  res.json({
+    name: 'Aisha',
+    major: 'Computer Science'
+  });
+});
 
-// TODO 3: Allow React to access the server
-
-
-
-// TODO 5: Create the home route "/"
-
-
-
-// TODO 6: Create the "/about" route
-
-
-
-// TODO 7: Create the "/student" route
-
-
-
-// TODO 4: Start the server on port 3000
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

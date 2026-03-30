@@ -370,6 +370,18 @@ export default function App() {
   //     setStudent(data);
   //   });
 
+   const [student, setStudent] = useState(null);
+
+  // ✅ TODO 8: Fetch data when page loads
+  useEffect(() => {
+    fetch('http://localhost:3000/student')
+      .then((res) => res.json())
+      .then((data) => {
+        setStudent(data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <main className="app-shell">
       <section className="hero-box">
